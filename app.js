@@ -3,6 +3,9 @@ const express = require('express');
 // express app
 const app = express();
 
+// connect to mongodb
+const dbURI = 'mongodb+srv://<username>:<password>@nodeblog.1ivsyaf.mongodb.net/?retryWrites=true&w=majority';
+
 // include css styles
 app.use(express.static(__dirname + '/css'));
 
