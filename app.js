@@ -1,19 +1,21 @@
 const express = require('express');
+const mongoose = require('mongoose');
 
 // express app
 const app = express();
 
 // connect to mongodb
-const dbURI = 'mongodb+srv://<username>:<password>@nodeblog.1ivsyaf.mongodb.net/?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://user1:abcd1234@nodeblog.1ivsyaf.mongodb.net/?retryWrites=true&w=majority';
+mongoose.set('strictQuery', false);
+mongoose.connect(dbURI)
+    .then(result => app.listen(3000), console.log('successfully connected to the database...'))
+    .catch(err => console.error(err));
 
 // include css styles
 app.use(express.static(__dirname + '/css'));
 
 // register ejs view engine
 app.set('view engine', 'ejs');
-
-// listen for request
-app.listen(3000);
 
 // routing
 app.get('/', (req, res) => {
