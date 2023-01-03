@@ -18,6 +18,10 @@ app.get('/about', (req, res) => {
     res.render('about');
 });
 
+app.get('/posts/create', (req, res) => {
+    res.render('create');
+});
+
 app.use((req, res) => { // redirects any invalid request to a 404 page
     res.status(404).render('404');
 });
