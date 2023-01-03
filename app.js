@@ -9,6 +9,15 @@ app.set('view engine', 'ejs');
 // listen for request
 app.listen(3000);
 
+// routing
 app.get('/', (req, res) => {
     res.render('index');
+});
+
+app.get('/about', (req, res) => {
+    res.render('about');
+});
+
+app.use((req, res) => { // redirects any invalid request to a 404 page
+    res.status(404).render('404');
 });
