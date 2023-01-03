@@ -3,6 +3,9 @@ const express = require('express');
 // express app
 const app = express();
 
+// include css styles
+app.use(express.static(__dirname + '/css'));
+
 // register ejs view engine
 app.set('view engine', 'ejs');
 
