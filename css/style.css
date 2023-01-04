@@ -89,6 +89,15 @@ nav a {
     cursor: pointer;
 }
 
+/* Post content  */
+.posts.content {
+    padding: 2em;
+}
+
+.posts.content h2 {
+    font-size: 2rem;
+}
+
 /* Posts data */
 .p-title {
     font-size: 1.5em;
