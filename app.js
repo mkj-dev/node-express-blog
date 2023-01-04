@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const Post = require('./models/post');
 
 // express app
 const app = express();
