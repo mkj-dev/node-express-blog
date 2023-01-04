@@ -19,7 +19,12 @@ app.set('view engine', 'ejs');
 
 // routing
 app.get('/', (req, res) => {
-    res.render('index');
+    const posts = [
+        {'post-title': 'First post', 'post-snippet': 'This is my first post...', 'post-body': 'This is a post body.'},
+        {'post-title': 'My second post', 'post-snippet': 'This is my second post.', 'post-body': 'This is a post body.'},
+        {'post-title': 'Third post', 'post-snippet': 'This is my third post :)', 'post-body': 'This is a post body.'},
+    ];
+    res.render('index', { posts });
 });
 
 app.get('/about', (req, res) => {
