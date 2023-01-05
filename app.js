@@ -30,8 +30,18 @@ app.get('/about', (req, res) => {
 app.get('/posts/create', (req, res) => {
     res.render('create');
 });
+
 // Post routing
-app.get('/posts', (req, res) => {});
+app.get('/posts', (req, res) => {
+    // Display all posts
+    Post.find()
+        .then(result => {
+            res.render('index', { posts: result });
+        })
+        .catch(err => {
+            console.error(err);
+        });
+});
 
 app.use((req, res) => { // redirects any invalid request to a 404 page
     res.status(404).render('404');
