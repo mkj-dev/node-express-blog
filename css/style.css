@@ -44,7 +44,7 @@ nav a {
 }
 
 .about h2 {
-    font-size: 2em;
+    font-size: 2rem;
     margin-bottom: 1.2em;
 }
 
@@ -100,21 +100,38 @@ nav a {
 
 /* Posts data */
 .p-title {
-    font-size: 1.5em;
+    font-size: 1.5rem;
     margin-bottom: 10px;
 }
 
 .p-body {
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-bottom: 1.2em;
 }
 
 .p-snippet {
     color: #777;
-    font-size: 0.9em;
-    margin-bottom: 20px;
+    font-size: 0.9rem;
+    margin-bottom: 1.2em;
     display: flex;
     align-items: center;
+}
+
+/* Post details */
+.post-details {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.2em;
+}
+
+.post-details h2 {
+    font-size: 2rem;
+    margin-bottom: 1.2em;
+}
+
+.post-details p {
+    line-height: 1.5;
+    margin-bottom: 1.2em;
 }
 
 /* Footer */
