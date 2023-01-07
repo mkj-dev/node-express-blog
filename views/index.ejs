@@ -8,9 +8,11 @@
 
         <% if (posts.length > 0) { %>
             <% posts.forEach(post => { %>
-                <h3 class="p-title"><%= post['post-title'] %></h3>
-                <p class="p-body"><%= post['post-body'] %></p>
-                <small class="p-snippet"><%= post['post-snippet'] %></small>
+                <a class="p-single" href="/posts/<%= post['_id'] %>">
+                    <h3 class="p-title"><%= post['post-title'] %></h3>
+                    <p class="p-body"><%= post['post-body'] %></p>
+                    <small class="p-snippet"><%= post['post-snippet'] %></small>
+                </a>
             <% }) %>
         <% } else { %>
             <h3>No posts, add something.</h3>
