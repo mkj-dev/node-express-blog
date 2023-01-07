@@ -45,6 +45,19 @@ app.get('/posts', (req, res) => {
         });
 });
 
+app.post('/posts', (req, res) => {
+    // Save form data to the database
+    const post = new Post(req.body);
+
+    post.save()
+        .then(result => {
+            res.redirect('/posts');
+        })
+        .catch(err => {
+            console.error(err);
+        });
+});
+
 app.use((req, res) => { // redirects any invalid request to a 404 page
     res.status(404).render('404');
 });
