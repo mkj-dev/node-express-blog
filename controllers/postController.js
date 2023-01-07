@@ -38,7 +38,7 @@ const post_details = (req, res) => {
             res.render('details', { post: result });
         })
         .catch(err => {
-            console.error(err);
+            res.status(404).render('404');
         });
 }
 
