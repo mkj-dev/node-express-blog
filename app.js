@@ -1,7 +1,6 @@
-const { render } = require('ejs');
 const express = require('express');
 const mongoose = require('mongoose');
-const Post = require('./models/post');
+const postRoutes = require('./routes/postRoutes');
 
 // express app
 const app = express();
@@ -29,6 +28,9 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
     res.render('about');
 });
+
+// post routes
+app.use(postRoutes);
 
 app.use((req, res) => { // redirects any invalid request to a 404 page
     res.status(404).render('404');
