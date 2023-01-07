@@ -68,7 +68,20 @@ app.get('/posts/:id', (req, res) => {
             res.render('details', { post: result });
         })
         .catch(err => {
-            console.log(err);
+            console.error(err);
+        });
+});
+
+// Delete post by id parameter
+app.delete('/posts/:id', (req, res) => {
+    const id = req.params.id;
+
+    Post.findByIdAndDelete(id)
+        .then(result => {
+            res.json({ redirect: '/posts' });
+        })
+        .catch(err => {
+            console.error(err);
         });
 });
 
