@@ -6,6 +6,7 @@
     <main class="post-details content">
         <h2><%= post['post-title'] %></h2>
         <p><%= post['post-body'] %></p>
+        <a class="delete-btn" data-id="<%= post['_id'] %>">Delete</a>
     </main>
 
     <%- include('./components/footer.ejs'); %>
