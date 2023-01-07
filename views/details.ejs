@@ -10,4 +10,23 @@
     </main>
 
     <%- include('./components/footer.ejs'); %>
+
+    <script>
+        const deleteBtn = document.querySelector('.delete-btn');
+
+        deleteBtn.addEventListener('click', () => {
+            const endpoint = `/posts/${deleteBtn.dataset.id}`;
+
+            // Send a delete request to the server
+            fetch(endpoint, {
+                method: 'DELETE'
+            })
+            .then(response => {
+                window.location.href = '/posts';
+            })
+            .catch(err => {
+                console.error(err);
+            });
+        });
+    </script>
 </body>
