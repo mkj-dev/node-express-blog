@@ -1,3 +1,4 @@
+const { render } = require('ejs');
 const express = require('express');
 const mongoose = require('mongoose');
 const Post = require('./models/post');
@@ -55,6 +56,19 @@ app.post('/posts', (req, res) => {
         })
         .catch(err => {
             console.error(err);
+        });
+});
+
+// Get each post by id parameter
+app.get('/posts/:id', (req, res) => {
+    const id = req.params.id;
+
+    Post.findById(id)
+        .then(result => {
+            res.render('details', { post: result });
+        })
+        .catch(err => {
+            console.log(err);
         });
 });
 
