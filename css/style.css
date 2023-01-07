@@ -134,6 +134,18 @@ nav a {
     margin-bottom: 1.2em;
 }
 
+/* Delete post button */
+.delete-btn {
+    cursor: pointer;
+    padding: .6em 1em;
+    font-size: .8rem;
+    text-transform: uppercase;
+    background-color: #f04242;
+    color: #fff;
+    border: transparent;
+    border-radius: 6px;
+}
+
 /* Footer */
 footer {
     display: flex;
