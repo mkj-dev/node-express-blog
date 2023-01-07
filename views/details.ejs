@@ -1,0 +1,12 @@
+<%- include('./components/header.ejs'); %>
+
+<body>
+    <%- include('./components/nav.ejs'); %>
+
+    <main class="post-details content">
+        <h2><%= post['post-title'] %></h2>
+        <p><%= post['post-body'] %></p>
+    </main>
+
+    <%- include('./components/footer.ejs'); %>
+</body>
