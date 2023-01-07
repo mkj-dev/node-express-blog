@@ -1,60 +1,20 @@
 const express = require('express');
-const Post = require('../models/post');
+const postController = require('../controllers/postController');
 const router = express.Router();
 
-// Post routing
-router.get('/posts/create', (req, res) => {
-    res.render('create');
-});
+// Get form view
+router.get('/posts/create', postController.post_get_form);
 
-router.get('/posts', (req, res) => {
-    // Display all posts
-    Post.find()
-        .then(result => {
-            res.render('index', { posts: result });
-        })
-        .catch(err => {
-            console.error(err);
-        });
-});
+// Display all posts
+router.get('/posts', postController.post_index);
 
-router.post('/posts', (req, res) => {
-    // Save form data to the database
-    const post = new Post(req.body);
-
-    post.save()
-        .then(result => {
-            res.redirect('/posts');
-        })
-        .catch(err => {
-            console.error(err);
-        });
-});
+// Save form data to the database
+router.post('/posts', postController.post_save_form_data);
 
 // Get each post by id parameter
-router.get('/posts/:id', (req, res) => {
-    const id = req.params.id;
-
-    Post.findById(id)
-        .then(result => {
-            res.render('details', { post: result });
-        })
-        .catch(err => {
-            console.error(err);
-        });
-});
+router.get('/posts/:id', postController.post_details);
 
 // Delete post by id parameter
-router.delete('/posts/:id', (req, res) => {
-    const id = req.params.id;
-
-    Post.findByIdAndDelete(id)
-        .then(result => {
-            res.json({ redirect: '/posts' });
-        })
-        .catch(err => {
-            console.error(err);
-        });
-});
+router.delete('/posts/:id', postController.post_delete);
 
 module.exports = router;
