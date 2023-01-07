@@ -14,6 +14,8 @@ mongoose.connect(dbURI)
 
 // include css styles
 app.use(express.static(__dirname + '/css'));
+// middleware for accepting form data
+app.use(express.urlencoded({ extended: true }));
 
 // register ejs view engine
 app.set('view engine', 'ejs');
